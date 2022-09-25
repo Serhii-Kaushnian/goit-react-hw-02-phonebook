@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
+import { Form, Label, Input } from './Filter.styled';
 
 export default class Filter extends Component {
   render() {
     const { filterChange, filterValue } = this.props;
     return (
       <div>
-        <form>
-          <label>
-            Find contact by name:
-            <input
+        <Form>
+          <Label>
+            Find contact by name
+            <Input
               onChange={filterChange}
               type="text"
               name="filter"
               value={filterValue}
             />
-          </label>
-        </form>
+          </Label>
+        </Form>
       </div>
     );
   }

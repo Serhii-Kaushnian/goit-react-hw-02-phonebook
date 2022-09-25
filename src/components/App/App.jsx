@@ -3,6 +3,7 @@ import ContactForm from 'ContactForm/ContactForm';
 import ContactList from 'ContactList/ContactList';
 import Filter from 'Filter/Filter';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { AppWrapper, Wrapper } from './App.styled';
 export default class App extends Component {
   state = {
     contacts: [
@@ -32,16 +33,11 @@ export default class App extends Component {
   };
   contactFormHadler = data => {
     if (this.isContactlreadyExist(data)) {
-      this.setState(
-        prevState => {
-          return {
-            contacts: [...prevState.contacts, data],
-          };
-        },
-        () => {
-          this.test();
-        }
-      );
+      this.setState(prevState => {
+        return {
+          contacts: [...prevState.contacts, data],
+        };
+      });
     } else {
       Notify.info(`Contact ${data.name} is already in Your Phonebook`);
     }
@@ -60,29 +56,30 @@ export default class App extends Component {
     });
   };
 
-  test = () => {};
   render() {
     const { filter, contacts } = this.state;
     const filteredContacts = this.getFilteredContacts();
 
     return (
-      <div>
-        <ContactForm
-          allContacts={contacts}
-          title="Phonebook"
-          onFormSubmit={this.contactFormHadler}
-        ></ContactForm>
-        <Filter
-          filterChange={this.handleFilter}
-          filterValue={filter}
-          test={filteredContacts}
-        ></Filter>
+      <AppWrapper>
+        <Wrapper>
+          <ContactForm
+            allContacts={contacts}
+            title="Phonebook"
+            onFormSubmit={this.contactFormHadler}
+          ></ContactForm>
+          <Filter
+            filterChange={this.handleFilter}
+            filterValue={filter}
+            test={filteredContacts}
+          ></Filter>
+        </Wrapper>
         <ContactList
           title="Contacts"
           onContactDelete={this.deleteContact}
           contactsList={filteredContacts}
         ></ContactList>
-      </div>
+      </AppWrapper>
     );
   }
 }
