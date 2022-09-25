@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 export const AppWrapper = styled.section`
-  height: 100vh;
+  min-height: 100%;
+  width: 100%;
   background: #e0e0e0;
 
   display: flex;
