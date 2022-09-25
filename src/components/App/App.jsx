@@ -49,7 +49,7 @@ export default class App extends Component {
   };
   getFilteredContacts = () => {
     const { filter, contacts } = this.state;
-    const formatedNames = filter.toLowerCase();
+    const formatedNames = filter.toLowerCase().trim();
 
     return contacts.filter(contact => {
       return contact.name.toLowerCase().includes(formatedNames);
