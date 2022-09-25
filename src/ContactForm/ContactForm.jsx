@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import {
   ContactsWrapper,
@@ -16,23 +17,15 @@ export default class ContactForm extends Component {
 
   onContactFormInputChange = e => {
     const { name, value } = e.currentTarget;
-    this.setState(
-      {
-        [name]: value,
-        id: shortid.generate(),
-      },
-      () => {
-        this.test();
-      }
-    );
+    this.setState({
+      [name]: value,
+      id: shortid.generate(),
+    });
   };
   addContact = e => {
     e.preventDefault();
     this.props.onFormSubmit(this.state);
     this.formReset();
-  };
-  test = () => {
-    // console.log(this.state.name);
   };
   formReset = () => {
     this.setState({
@@ -79,3 +72,14 @@ export default class ContactForm extends Component {
     );
   }
 }
+ContactForm.propTypes = {
+  title: PropTypes.string.isRequired,
+  allContacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  onFormSubmit: PropTypes.func.isRequired,
+};

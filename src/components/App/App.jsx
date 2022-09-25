@@ -71,7 +71,6 @@ export default class App extends Component {
           <Filter
             filterChange={this.handleFilter}
             filterValue={filter}
-            test={filteredContacts}
           ></Filter>
         </Wrapper>
         <ContactList

@@ -8,6 +8,8 @@ import {
   Button,
   ItemContainerSpan,
 } from './ContactList.styled';
+import PropTypes from 'prop-types';
+
 import { FaRegSadCry } from 'react-icons/fa';
 export default class ContactList extends Component {
   render() {
@@ -46,3 +48,14 @@ export default class ContactList extends Component {
     );
   }
 }
+ContactList.propTypes = {
+  title: PropTypes.string.isRequired,
+  allContacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  onContactDelete: PropTypes.func.isRequired,
+};

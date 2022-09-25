@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Label, Input } from './Filter.styled';
+import PropTypes from 'prop-types';
 
 export default class Filter extends Component {
   render() {
@@ -21,3 +22,7 @@ export default class Filter extends Component {
     );
   }
 }
+Filter.propTypes = {
+  filterValue: PropTypes.string.isRequired,
+  filterChange: PropTypes.func.isRequired,
+};
