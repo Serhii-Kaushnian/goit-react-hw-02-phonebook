@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ContactForm from 'ContactForm/ContactForm';
+import ContactForm from '../ContactForm/ContactForm';
 import ContactList from '../ContactList/ContactList';
-import Filter from 'Filter/Filter';
+import Filter from '../Filter/Filter';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { AppWrapper, Wrapper } from './App.styled';
 export default class App extends Component {
