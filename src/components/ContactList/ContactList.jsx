@@ -40,7 +40,7 @@ export default class ContactList extends Component {
         ) : (
           <>
             <h3>
-              Contact list empty <FaRegSadCry />
+              Contact list is empty <FaRegSadCry />
             </h3>
           </>
         )}
