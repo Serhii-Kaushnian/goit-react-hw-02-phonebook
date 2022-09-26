@@ -57,14 +57,13 @@ export default class App extends Component {
   };
 
   render() {
-    const { filter, contacts } = this.state;
+    const { filter } = this.state;
     const filteredContacts = this.getFilteredContacts();
 
     return (
       <AppWrapper>
         <Wrapper>
           <ContactForm
-            allContacts={contacts}
             title="Phonebook"
             onFormSubmit={this.contactFormHadler}
           ></ContactForm>
